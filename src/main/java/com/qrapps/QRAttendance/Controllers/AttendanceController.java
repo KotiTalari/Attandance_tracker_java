@@ -1,6 +1,7 @@
 package com.qrapps.QRAttendance.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,8 +12,7 @@ import com.qrapps.QRAttendance.Entities.Attendance;
 
 import com.qrapps.QRAttendance.ResponseModels.GlobalResponse;
 import com.qrapps.QRAttendance.ServiceImp.AttendanceServiceImpl;
-import com.qrapps.QRAttendance.ServiceImp.CommonServiceImpl;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/attend")
 public class AttendanceController {

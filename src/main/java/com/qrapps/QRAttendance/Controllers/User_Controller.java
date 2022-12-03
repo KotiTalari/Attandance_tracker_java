@@ -2,6 +2,7 @@ package com.qrapps.QRAttendance.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -9,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qrapps.QRAttendance.BaseModel.Base_User;
 import com.qrapps.QRAttendance.Entities.BaseUser;
 import com.qrapps.QRAttendance.Entities.User_Course;
-import com.qrapps.QRAttendance.ResponseModels.GlobalResponse;
 import com.qrapps.QRAttendance.services.UserService;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/user")
 public class User_Controller {
