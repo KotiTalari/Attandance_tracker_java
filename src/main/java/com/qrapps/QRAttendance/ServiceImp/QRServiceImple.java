@@ -2,6 +2,7 @@ package com.qrapps.QRAttendance.ServiceImp;
 
 
 
+import java.util.Base64;
 import java.util.Date;
 
 import org.json.JSONObject;
@@ -21,7 +22,7 @@ public class QRServiceImple implements CommonService {
 	@Autowired
 	private QR_DAO qrRepo;
 	@Override
-	public byte[] addEntity(Object object) {
+	public String addEntity(Object object) {
 		// TODO Auto-generated method stub
 		try {
 			
@@ -56,7 +57,9 @@ public class QRServiceImple implements CommonService {
 			System.out.println("value is "+jsonObj.toString());
 			
 			System.out.println(" siva value is "+out);
-			return qrUtile.generateQRCodeImage(jsonObj.toString());
+		byte[] byteData =  qrUtile.generateQRCodeImage(jsonObj.toString());
+			byte[] encoded = Base64.getEncoder().encode(byteData);
+			return new String(encoded);  
 		
 		
 		}

@@ -34,8 +34,7 @@ public class QRInterceptor implements HandlerInterceptor {
 		String uid=request.getHeader("token");
 		System.out.println("token is"+uid);
 		return uid==null ? false : cache.isValidUser(uid);
-		
-		
+
 		
 	}
 

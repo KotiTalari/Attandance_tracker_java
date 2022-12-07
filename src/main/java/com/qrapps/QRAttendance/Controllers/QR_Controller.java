@@ -22,10 +22,26 @@ public class QR_Controller {
 	@Autowired
 	public QRServiceImple qRServiceImple;
 	
-	@PostMapping ( value = "/generate" ,produces = MediaType.IMAGE_JPEG_VALUE)	
-	public  @ResponseBody byte[] generateCode(@RequestBody QRStore data) {		
-		return qRServiceImple.addEntity(data);
+	@PostMapping ( value = "/generate")	
+	public  @ResponseBody ImageDto generateCode(@RequestBody QRStore data) {	
+		ImageDto  dto =  new ImageDto();
+		dto.setData(qRServiceImple.addEntity(data));
+		return dto;
 	}
 	
+	class ImageDto{
+		
+		private String data;
+
+		public String getData() {
+			return data;
+		}
+
+		public void setData(String data) {
+			this.data = data;
+		}
+		
+		
+	}
 	
 }
